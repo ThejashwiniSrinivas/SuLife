@@ -1,0 +1,598 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600&display=swap');
+
+/* Base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", "Poppins", "Segoe UI", sans-serif;
+}
+
+/* Background Image Cover */
+.donor-dashboard__bg-image-cover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background-image: url("../assets/organbg.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  filter: brightness(0.8);
+}
+
+/* Main Wrapper */
+.donor-dashboard__wrapper {
+  margin-left: 280px; /* space for sidebar */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: calc(100% - 280px);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Sidebar Overlay */
+.donor-dashboard__sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 280px;
+  height: 100vh;
+  background: rgba(15, 23, 42, 0.2);
+  z-index: 1;
+  border-radius: 0;
+  pointer-events: none;
+}
+
+/* Sidebar */
+.donor-dashboard__sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 280px;
+  height: 100vh;
+  padding-top: 84px;
+  padding-bottom: 2rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: rgba(32,40,54,0.45);
+  backdrop-filter: blur(18px);
+  color: #fff;
+  z-index: 2;
+  border-radius: 0 20px 20px 0;
+  box-shadow: 0 10px 42px rgba(42,48,64,0.26);
+}
+
+/* Sidebar Buttons */
+.donor-dashboard__sidebar-btn {
+  background: none;
+  border: none;
+  color: #e0e7ff;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.9rem 1rem;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: background 0.35s ease, color 0.35s ease, transform 0.25s ease;
+  animation: fadeInColor 0.8s ease forwards;
+}
+.donor-dashboard__sidebar-btn:hover,
+.donor-dashboard__sidebar-btn.active {
+  background: rgba(255, 255, 255, 0.22);
+  color: #3b82f6;
+  transform: translateX(6px);
+}
+@keyframes fadeInColor {
+  from { color: transparent; }
+  to { color: inherit; }
+}
+
+/* Sidebar Badges */
+.donor-dashboard__sidebar-badge {
+  background: crimson;
+  border-radius: 50%;
+  padding: 0 7px;
+  font-size: 0.8rem;
+  color: #fff;
+  margin-left: auto;
+  min-width: 22px;
+  text-align: center;
+  box-shadow: 0 0 6px crimson;
+}
+
+/* Main Content Container */
+.donor-dashboard__content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Main Glassy Container */
+.donor-dashboard__inner {
+  width: 69vw;
+  max-width: 5000px;
+  height: 100px;
+  min-height: 85vh;
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(22px) saturate(160%);
+  border: 1.2px solid rgba(180,200,245,0.18);
+  box-shadow: 0 10px 40px rgba(34,60,90,0.22), 0 2px 10px rgba(84,227,229,0.35);
+  border-radius: 15px;
+  padding: 2rem 3rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin-left: 80px;
+}
+
+/* Heading */
+/* Heading */
+/* Header Title */
+/* Header Title */
+.donor-dashboard__header-title {
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 0.3rem;
+  font-family: 'Poppins', sans-serif;
+  color: #0f4c75; /* single attractive deep blue */
+  animation: fadeSlideIn 0.8s ease forwards;
+}
+
+/* Donor ID */
+.donor-dashboard__donor-id {
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: #0f4c75; /* same as heading */
+  margin: 0.1rem auto;
+  letter-spacing: 0.5px;
+  animation: fadeSlideIn 1s ease forwards;
+}
+
+/* Motivational Quote */
+.donor-dashboard__header-quote {
+  text-align: center;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: #0f4c75; /* same as heading & donor ID */
+  margin: 0.1rem auto 0.4rem auto;
+  letter-spacing: 0.5px;
+  font-family: 'Inter', sans-serif;
+  animation: fadeSlideIn 1.2s ease forwards;
+}
+
+/* Slide & fade animation for all */
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scrollable Content Section */
+.donor-dashboard__content-section {
+  flex: 1;
+  overflow-y: auto;
+  margin-top: 1.5rem;
+  padding: 1.2rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.08);
+}
+.donor-dashboard__content-section:hover,
+.donor-dashboard__content-section:focus {
+  box-shadow: 0 0 15px rgba(44, 183, 255, 0.35);
+}
+.donor-dashboard__content-section::-webkit-scrollbar {
+  width: 9px;
+}
+.donor-dashboard__content-section::-webkit-scrollbar-thumb {
+  background-color: rgba(44, 183, 255, 0.8);
+  border-radius: 6px;
+}
+.donor-dashboard__content-section::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Profile Fields */
+.donor-dashboard__profile-fields {
+  display: grid;
+  gap: 1rem;
+  justify-items: start;
+  padding-left: 1rem;
+}
+
+.donor-dashboard__profile-fields label {
+  font-weight: 600;
+  color: #000;
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+}
+/* Input Fields: all sections */
+.donor-dashboard__profile-fields input,
+.donor-dashboard__profile-fields select,
+.donor-dashboard__resetpassword-section input,
+.donor-dashboard__organ-input,
+.donor-dashboard__request-card input {
+  width: 100%;
+  max-width: 320px;
+  padding: 0.7rem 1.2rem;
+  border-radius: 12px; /* slightly smaller radius for modern look */
+  border: 1.5px solid rgba(120, 210, 245, 0.4);
+  background: rgba(255, 255, 255, 0.22); /* subtle glass effect */
+  color: #0f172a; /* dark, readable text */
+  font-weight: 500;
+  outline: none;
+  transition: all 0.3s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  margin-bottom: 0.8rem;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+}
+
+/* Placeholder text */
+.donor-dashboard__profile-fields input::placeholder,
+.donor-dashboard__profile-fields select::placeholder,
+.donor-dashboard__resetpassword-section input::placeholder,
+.donor-dashboard__organ-input::placeholder,
+.donor-dashboard__request-card input::placeholder {
+  color: rgba(15, 23, 42, 0.5); /* soft, readable */
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* Input Focus Animation */
+.donor-dashboard__profile-fields input:focus,
+.donor-dashboard__profile-fields select:focus,
+.donor-dashboard__resetpassword-section input:focus,
+.donor-dashboard__organ-input:focus,
+.donor-dashboard__request-card input:focus {
+  border-color: #0ea5e9; /* bright, consistent with theme */
+  background: rgba(14, 165, 233, 0.15);
+  box-shadow: 0 4px 14px rgba(14,165,233,0.35);
+  transform: scale(1.03); /* subtle zoom effect */
+  color: #0f172a; /* text stays dark on focus */
+}
+
+/* Profile Buttons */
+.donor-dashboard__profile-buttons {
+  margin-top: 1.2rem;
+  display: flex;
+  gap: 0.8rem;
+  justify-content: flex-end;
+}
+
+/* Buttons */
+.donor-dashboard__btn {
+  padding: 0.65rem 1.6rem;
+  border-radius: 14px;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  text-align: center;
+  width: 140px; /* same size for Save & Cancel */
+}
+.donor-dashboard__btn--save {
+  background: linear-gradient(135deg, #28a745, #2ecc71);
+  color: #f0faff;
+  box-shadow: 0 0 8px #2ecc71aa;
+}
+.donor-dashboard__btn--save:hover:not(:disabled) {
+  box-shadow: 0 0 15px #28a745cc;
+  transform: scale(1.07);
+}
+.donor-dashboard__btn--cancel {
+  background: linear-gradient(135deg, #dc3545, #ff4d6d);
+  color: #f0faff;
+  box-shadow: 0 0 8px #ff4d6daa;
+}
+.donor-dashboard__btn--cancel:hover:not(:disabled) {
+  box-shadow: 0 0 15px #dc3545cc;
+  transform: scale(1.07);
+}
+
+/* Request Cards */
+.donor-dashboard__request-card {
+  background: rgba(255, 255, 255, 0.14);
+  max-width: 300px; /* reduced width */
+  border-radius: 16px;
+  padding: 0.9rem 1.2rem; /* reduced padding */
+  box-shadow: 0 5px 18px rgba(0,0,0,0.22);
+  transition: transform 0.3s ease, background 0.3s ease;
+  border-left: 6px solid #00c4b2;
+  display: flex;
+  flex-direction: column;
+  gap: 6px; /* smaller gap between items */
+}
+
+/* Request Cards Text */
+/* Request Cards Text */
+.donor-dashboard__request-card p,
+.donor-dashboard__request-card span {
+  color: black; /* soft yellow */
+  font-size: 0.95rem;
+  margin: 2px 0;
+  line-height: 1.2rem;
+}
+
+/* Gap between request cards */
+.donor-dashboard__requests-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* space between each card */
+}
+
+.donor-dashboard__request-card.pending { border-left-color: #ffc107; }
+.donor-dashboard__request-card.accepted { border-left-color: #28a745; }
+.donor-dashboard__request-card.completed { border-left-color: #17a2b8; }
+
+/* Accept & Decline Buttons */
+.donor-dashboard__request-actions {
+  margin-top: 6px; /* less space above buttons */
+  display: flex;
+  gap: 6px; /* smaller gap between buttons */
+}
+.donor-dashboard__request-actions .donor-dashboard__btn--accept {
+  background: linear-gradient(135deg, #28a745, #2ecc71);
+  color: #fff;
+  flex: 1;
+}
+.donor-dashboard__request-actions .donor-dashboard__btn--decline {
+  background: linear-gradient(135deg, #dc3545, #ff4d6d);
+  color: #fff;
+  flex: 1;
+}
+.donor-dashboard__request-actions .donor-dashboard__btn:hover {
+  transform: scale(1.05);
+  transition: transform 0.25s ease;
+}
+
+/* Donation History Cards */
+.donor-dashboard__donation-history-section .donor-dashboard__donation-card {
+  background: rgba(0,0,0,0.12);
+  max-width: 320px; /* reduced width */
+  padding: 10px 14px; /* reduced padding */
+  margin-bottom: 10px;
+  border-radius: 12px;
+  box-shadow: 0 0 8px rgba(76,175,80,0.35);
+  border-left: 6px solid #4caf50;
+  display: flex;
+  flex-direction: column;
+  gap: 4px; /* smaller gap between items */
+}
+.donor-dashboard__donation-history-section .donor-dashboard__donation-card.completed {
+  border-left-color: #4caf50;
+}
+.donor-dashboard__donation-history-section .donor-dashboard__donation-card.rejected {
+  border-left-color: #f44336;
+}
+.donor-dashboard__donation-history-section .donor-dashboard__donation-card.pending {
+  border-left-color: #ff9800;
+}
+.donor-dashboard__donation-history-section .status {
+  font-weight: 700;
+  color: #d0f3c0;
+}
+
+/* ---------------- AI Health Tips - vibrant glow ---------------- */
+.donor-dashboard__healthtips-section p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 0.6rem;
+  color: #0f172a;
+  opacity: 0;
+  transform: translateY(12px);
+  animation: slideFadeIn 420ms cubic-bezier(.22,.9,.28,1) forwards;
+  animation-fill-mode: both;
+  will-change: transform, opacity;
+  transition: all 0.3s ease;
+  padding: 0.45rem 0.6rem;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.03);
+  text-shadow: 0 0 0 rgba(0,0,0,0);
+}
+
+/* Stagger animation delays */
+.donor-dashboard__healthtips-section p:nth-of-type(1) { animation-delay: 0.10s; }
+.donor-dashboard__healthtips-section p:nth-of-type(2) { animation-delay: 0.28s; }
+.donor-dashboard__healthtips-section p:nth-of-type(3) { animation-delay: 0.46s; }
+.donor-dashboard__healthtips-section p:nth-of-type(4) { animation-delay: 0.64s; }
+.donor-dashboard__healthtips-section p:nth-of-type(5) { animation-delay: 0.82s; }
+
+/* Slide & fade in */
+@keyframes slideFadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Hover: vibrant glowing effect */
+.donor-dashboard__healthtips-section p:hover {
+  transform: translateY(-3px) scale(1.03);
+  background: rgba(0,255,255,0.1); /* light cyan background */
+  box-shadow: 
+    0 0 6px #00fff7,
+    0 0 12px #00d8f7,
+    0 0 18px #00b0f7,
+    0 0 24px #0088f7;
+  color: #052235;
+  text-shadow: 
+    0 0 4px #00fff7,
+    0 0 8px #00d8f7,
+    0 0 12px #00b0f7;
+}
+
+/* Optional: subtle pulse glow animation */
+.donor-dashboard__healthtips-section p {
+  animation-name: slideFadeIn, vibrantPulse;
+  animation-duration: 420ms, 2.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(.22,.9,.28,1), ease-in-out;
+}
+
+@keyframes vibrantPulse {
+  0%, 100% { box-shadow: 0 0 0 rgba(0,255,255,0); text-shadow: 0 0 0 rgba(0,255,255,0); }
+  50%      { 
+    box-shadow: 
+      0 0 4px #00fff7, 
+      0 0 10px #00d8f7, 
+      0 0 16px #00b0f7; 
+    text-shadow: 
+      0 0 6px #00fff7, 
+      0 0 10px #00d8f7;
+  }
+}
+
+/* Organ & Blood Donation Headings - smaller & subtle animation */
+.donor-dashboard__card-profile-modal h2 {
+  font-weight: 600;
+  font-size: 1.4rem; /* smaller than before */
+  color: #0f172a; 
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.5px;
+  transition: transform 0.35s ease, color 0.35s ease;
+  opacity: 0;
+  transform: translateY(6px);
+  animation: fadeSlideUp 0.7s ease forwards;
+}
+
+.donor-dashboard__card-profile-modal h3 {
+  font-weight: 500;
+  font-size: 1.1rem; /* smaller than before */
+  color: #0f172a;
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.4px;
+  opacity: 0;
+  transform: translateY(6px);
+  animation: fadeSlideUp 0.7s ease forwards;
+}
+
+/* Stagger h3 animations */
+.donor-dashboard__card-profile-modal h3:nth-of-type(1) { animation-delay: 0.2s; }
+.donor-dashboard__card-profile-modal h3:nth-of-type(2) { animation-delay: 0.35s; }
+.donor-dashboard__card-profile-modal h3:nth-of-type(3) { animation-delay: 0.5s; }
+
+/* Hover effect */
+.donor-dashboard__card-profile-modal h2:hover,
+.donor-dashboard__card-profile-modal h3:hover {
+  color: #0a3a66;
+  transform: translateY(-2px);
+}
+
+/* Keyframes for fade + slide up */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Reset Password Section - stack fields vertically */
+.donor-dashboard__resetpassword-section {
+  display: flex;
+  flex-direction: column; /* stack inputs and button vertically */
+  gap: 0.8rem; /* spacing between fields and button */
+}
+
+/* Change Password Button */
+.donor-dashboard__resetpassword-section .donor-dashboard__btn--save {
+  width: 140px; /* optional: same as other buttons */
+  margin-top: 0.3rem; /* small space above button */
+  align-self: flex-start; /* aligns button to the left */
+}
+
+/* Side Component Headings - unified style like Organ modal */
+.donor-dashboard__content-section h2,
+.donor-dashboard__content-section h3 {
+  font-family: 'Poppins', sans-serif;
+  color: #0f172a; /* black, same as Organ modal */
+  font-weight: 600; /* h2 */
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+  opacity: 0;
+  transform: translateY(6px);
+  animation: fadeSlideUp 0.7s ease forwards;
+}
+
+.donor-dashboard__content-section h3 {
+  font-weight: 500;
+  font-size: 1.1rem;
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.4px;
+}
+
+/* Stagger multiple h3s if present */
+.donor-dashboard__content-section h3:nth-of-type(1) { animation-delay: 0.2s; }
+.donor-dashboard__content-section h3:nth-of-type(2) { animation-delay: 0.35s; }
+.donor-dashboard__content-section h3:nth-of-type(3) { animation-delay: 0.5s; }
+
+/* Hover effect */
+.donor-dashboard__content-section h2:hover,
+.donor-dashboard__content-section h3:hover {
+  color: #0a3a66; /* subtle darker on hover */
+  transform: translateY(-2px);
+}
+
+/* Fade + Slide Up Keyframes */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes textFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-10px);
+    text-shadow: none;
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(5px);
+    text-shadow: 0 0 5px rgba(102, 126, 234, 0.7);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+    text-shadow: 0 0 8px rgba(102, 126, 234, 0.9);
+  }
+}
+
+.donor-dashboard__notification {
+  animation: textFadeIn 0.7s ease forwards;
+  color: #3a5bdc; /* nice blue tone */
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 12px;
+  user-select: none;
+}

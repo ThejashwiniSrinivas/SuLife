@@ -1,0 +1,298 @@
+/* === OUTERMOST WRAPPER === */
+.admin-dashboard-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100vw;
+  background: url('../assets/login.jpg') no-repeat center center fixed;
+  background-size: cover; /* ✅ Ensures full-screen coverage */
+  font-family: "Poppins", sans-serif;
+  color: #333;
+  overflow: hidden;
+}
+
+/* === DASHBOARD LAYOUT === */
+.admin-dashboard {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  overflow-x: hidden;
+}
+
+/* === SIDEBAR === */
+.sidebar {
+  width: 250px;
+  height: calc(100vh - 70px); /* ✅ below navbar */
+  background: rgba(30, 41, 59, 0.88);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 1.2rem 0;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  margin-bottom: 30px;
+  backdrop-filter: blur(14px);
+  position: fixed; /* ✅ Sidebar stays in place */
+  top: 70px; /* match Navbar height */
+  left: 0;
+  overflow-y: auto;
+  z-index: 20;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-title {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  user-select: none;
+  color: #fff;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  padding: 0.9rem 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+  border-radius: 6px;
+  transition: background 0.25s ease, transform 0.2s ease;
+}
+
+.sidebar li:hover,
+.sidebar li.active {
+  background: rgba(51, 65, 85, 0.85);
+  transform: translateX(4px);
+}
+
+/* === MAIN CONTENT === */
+.dashboard-content {
+  margin-left: 250px; /* ✅ account for sidebar width */
+  margin-top: 70px; /* ✅ account for navbar */
+  padding: 2rem;
+  flex-grow: 1;
+  overflow-y: auto;
+  height: calc(100vh - 70px);
+  backdrop-filter: blur(15px);
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 12px 0 0 0;
+  box-shadow: -8px 0 16px rgba(0, 0, 0, 0.25);
+  color: #222;
+}
+
+.dashboard-content h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #111;
+}
+
+/* === STATS GRID === */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.25);
+  user-select: none;
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-6px);
+}
+
+.stat-card h3 {
+  color: blueviolet;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.stat-card p {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.stat-card.donors p {
+  color: #28a745;
+}
+.stat-card.hospitals p {
+  color: #007bff;
+}
+.stat-card.requests p {
+  color: #ff9800;
+}
+.stat-card.notifications p {
+  color: #e91e63;
+}
+
+/* === TABLE SECTION === */
+.table-section {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+}
+
+.table-section h2 {
+  margin-bottom: 1.5rem;
+  color: #111;
+}
+
+/* === SEARCH BAR === */
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1.5px solid rgba(200, 200, 200, 0.5);
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  width: 300px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+}
+
+.search-bar input {
+  border: none;
+  background: transparent;
+  outline: none;
+  width: 100%;
+  font-size: 1rem;
+  color: #111;
+}
+
+/* === TABLES === */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  color: #222;
+}
+
+th,
+td {
+  padding: 1rem 1.2rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+th {
+  background-color: rgba(240, 240, 240, 0.7);
+  font-weight: 600;
+}
+
+tr:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* === ACTION BUTTONS === */
+.approve-btn,
+.reject-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-right: 10px;
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+.approve-btn {
+  background-color: #28a745;
+}
+.approve-btn:hover {
+  background-color: #218838;
+}
+.reject-btn {
+  background-color: #dc3545;
+}
+.reject-btn:hover {
+  background-color: #c82333;
+}
+
+/* === SCROLLBAR === */
+.dashboard-content::-webkit-scrollbar {
+  width: 8px;
+}
+.dashboard-content::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+}
+.dashboard-content::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.logout-btn {
+  background-color: #e63946;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  width: 90%;
+  margin: 20px auto;
+  cursor: pointer;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.3s;
+}
+
+.logout-btn:hover {
+  background-color: #c82333;
+}
+
+@media (max-width: 768px) {
+  .admin-dashboard {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    padding: 10px;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap; /* ✅ allows wrapping instead of horizontal scroll */
+    overflow: hidden; /* ✅ removes scrollbar */
+  }
+
+  .sidebar ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; /* ✅ ensures items move to next line if needed */
+    gap: 10px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .sidebar li {
+    padding: 10px 16px;
+    font-size: 0.95rem;
+  }
+
+  .dashboard-content {
+    border-radius: 0;
+    padding: 1rem;
+    min-height: calc(100vh - 60px);
+  }
+}

@@ -1,0 +1,153 @@
+.patient-condition-page {
+  min-height: 100vh;
+  width: 300%; /* fixed from 300% to 100% for normal layout */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background:
+    url('../assets/patient.jpg') no-repeat center center/cover,
+    linear-gradient(115deg, #87e0fd 0%, #53cbf1 70%, #a5a0e7 100%);
+  font-family: 'Poppins', sans-serif;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.condition-form-container {
+  max-width: 480px;
+  width: 100%;
+  padding: 3rem 2.25rem 2.25rem 2.25rem;
+  border-radius: 1.8rem;
+  background: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(15px) saturate(180%);
+  border: 1.2px solid rgba(255, 255, 255, 0.26);
+  color: #21243e; /* Dark, readable font */
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+  animation: slideFadeIn 1s cubic-bezier(.42, 0, .58, 1.0) forwards;
+  transition: box-shadow 0.35s;
+}
+
+/* Headings contrast and clarity */
+.condition-form-container h2 {
+  text-align: center;
+  font-size: 2.1rem;
+  margin-top: -0.6rem;
+  margin-bottom: 1.65rem;
+  color: #153475;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-shadow: 0 3px 12px rgba(40, 50, 107, 0.19);
+}
+
+/* Labels high contrast */
+.condition-form-container label {
+  font-weight: 600;
+  color: #334175;
+  margin-bottom: 0.35rem;
+  display: block;
+  font-size: 1.02rem;
+  letter-spacing: 0.01em;
+}
+
+/* Inputs and selects clarity */
+.condition-form-container input,
+.condition-form-container select,
+.condition-form-container textarea {
+  width: 100%;
+  padding: 0.92rem 1.15rem;
+  border-radius: 0.9rem;
+  border: none;
+  font-size: 1.08rem;
+  background: rgba(255, 255, 255, 0.23);
+  color: #1b233d; /* Dark text for good readability */
+  margin-bottom: 0.3rem;
+  margin-top: 0.08rem;
+  box-shadow: 0 1.5px 8px rgba(31, 38, 135, 0.05);
+  transition: background 0.25s, box-shadow 0.25s;
+}
+
+/* Placeholder color */
+.condition-form-container input::placeholder,
+.condition-form-container textarea::placeholder {
+  color: #647098;
+  opacity: 0.88;
+  font-style: italic;
+}
+
+/* Focus states */
+.condition-form-container input:focus,
+.condition-form-container select:focus,
+.condition-form-container textarea:focus {
+  background: rgba(255, 255, 255, 0.32);
+  box-shadow: 0 0 10px rgba(80, 140, 250, 0.18);
+  outline: none;
+  border: 1.5px solid #1f6eff;
+}
+
+.condition-form-container textarea {
+  resize: vertical;
+  min-height: 100px;
+  max-height: 200px;
+}
+
+/* Buttons: unified style for Save and Back */
+.save-condition-btn,
+.back-to-dashboard-btn {
+  width: 160px;
+  height: 48px;
+  border-radius: 24px;
+  border: none;
+  background-color: #4a90e2; /* Uniform calm blue */
+  color: #fff;
+  font-size: 1.18rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 1.2rem;
+  letter-spacing: 0.05em;
+  box-shadow: 0 4px 15px rgba(74, 144, 226, 0.4);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.save-condition-btn:hover,
+.back-to-dashboard-btn:hover,
+.save-condition-btn:focus,
+.back-to-dashboard-btn:focus {
+  background-color: #357ab8; /* Slightly darker blue for hover/focus */
+  box-shadow: 0 6px 22px rgba(53, 122, 184, 0.55);
+  transform: translateY(-3px) scale(1.05);
+}
+
+.button-row {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  justify-content: center;
+}
+
+/* Dropdown styling */
+.condition-form-container select {
+  cursor: pointer;
+}
+
+.condition-form-container select option {
+  color: #21243e;
+  font-weight: 600;
+}
+
+/* Slide fade-in animation */
+@keyframes slideFadeIn {
+  from {
+    opacity: 0.18;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

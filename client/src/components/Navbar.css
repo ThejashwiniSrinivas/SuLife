@@ -1,0 +1,44 @@
+.logo-navbar {
+  position: absolute;   /* ✅ Always on top */
+  top: 15px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #00ffe1;
+}
+
+.logo-navbar img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 8px;
+  object-fit: cover;
+
+  /* ✅ Glow effect */
+  box-shadow: 0 0 6px #00ffe1, 0 0 12px #00ffe1;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.logo-navbar img:hover {
+  /* ✨ Slightly stronger on hover */
+  box-shadow: 0 0 8px #00ffe1, 0 0 16px #00ffe1;
+}
+
+
+
+.logo-navbar span {
+  font-size: 25px;
+  font-weight: 700;
+  color: #00ffe1;
+}
+

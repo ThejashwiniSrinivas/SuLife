@@ -1,0 +1,104 @@
+.thankyou-container {
+  position: relative;
+  width: 300%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: flex-start;  /* moves form left */
+  padding-left: 500px; 
+  align-items: center;
+}
+
+.thankyou-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1;
+}
+
+/* Animate container fade-in + scale */
+.thankyou-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border-radius: 15px;
+  animation: fadeInScale 1.2s ease, float 3s ease-in-out infinite; /* ✅ combo animation */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Title glow animation */
+.thankyou-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #00e6e6;
+  margin-bottom: 15px;
+  text-shadow: 0 0 8px #00ffff, 0 0 16px #00e6e6;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+/* Message fade in sequential */
+.thankyou-msg {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 10px;
+  opacity: 0;
+  animation: fadeSlide 1.5s ease forwards;
+  animation-delay: 1s; /* appears after title */
+}
+
+/* Redirect pulse stays */
+.thankyou-redirect {
+  font-size: 1rem;
+  color: #ffdd57;
+  font-style: italic;
+  animation: pulse 1.5s infinite, fadeSlide 1.5s ease forwards;
+  animation-delay: 2s; /* appears last */
+}
+
+/* Keyframes */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 8px #00ffff, 0 0 16px #00e6e6;
+  }
+  to {
+    text-shadow: 0 0 16px #00ffff, 0 0 32px #00e6e6, 0 0 48px #00e6e6;
+  }
+}
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}

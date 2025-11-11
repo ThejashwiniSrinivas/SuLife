@@ -1,0 +1,227 @@
+/* General */
+.landing-container {
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Dark overlay */
+.landing-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 0;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(12px);
+  z-index: 10;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #00ffe1;
+  text-shadow: 0 0 10px rgba(0, 255, 225, 0.6);
+}
+
+.logo img {
+  width: 45px;
+  margin-right: 10px;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(0, 255, 225, 0.4);
+}
+
+.navbar nav {
+  display: flex;
+  gap: 18px;
+}
+
+.navbar nav button {
+  background: transparent;
+  border: 2px solid #00ffe1;
+  padding: 8px 18px;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.navbar nav button:hover {
+  background: #00ffe1;
+  color: #000;
+  transform: scale(1.08);
+  box-shadow: 0 0 15px #00ffe1;
+}
+
+/* Hero Section (Centered) */
+.hero-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 2;
+  padding: 0 20px;
+  animation: fadeIn 2s ease;
+}
+
+/* Main Title (SuLife) */
+.main-title {
+  font-size: 5rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: #ffffff;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.6), 0 0 15px rgba(255, 255, 255, 0.8);
+  margin-bottom: 25px;
+  font-family: "Poppins", sans-serif;
+  animation: fadeInDown 2s ease;
+}
+
+/* Tagline */
+.tagline {
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #f1f1f1;
+  line-height: 1.6;
+  margin-bottom: 35px;
+  font-family: "Roboto", sans-serif;
+  animation: fadeInUp 2.5s ease;
+}
+
+.tagline span {
+  font-weight: 700;
+  color: #00e0b5;
+  text-shadow: 0 0 10px rgba(0, 224, 181, 0.6);
+}
+
+/* Button */
+.get-started {
+  padding: 16px 40px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(0, 114, 255, 0.5);
+}
+
+.get-started:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 12px 35px rgba(0, 114, 255, 0.8);
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+  animation: fadeIn 0.5s ease;
+}
+
+.modal {
+  background: rgba(17, 17, 17, 0.95);
+  padding: 35px;
+  border-radius: 14px;
+  max-width: 520px;
+  width: 90%;
+  text-align: center;
+  animation: slideIn 0.6s ease;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+.modal h2 {
+  color: #00ffe1;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px rgba(0, 255, 225, 0.7);
+}
+
+.modal button {
+  margin-top: 20px;
+  padding: 10px 24px;
+  background: #00ffe1;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.modal button:hover {
+  background: #00c9b8;
+  transform: scale(1.08);
+  box-shadow: 0 0 15px #00ffe1;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: scale(0.9) translateY(40px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 3rem;
+  }
+  .tagline {
+    font-size: 1.2rem;
+  }
+  .get-started {
+    padding: 12px 28px;
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,738 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600&display=swap');
+
+/* --- Container & local bg image --- */
+.hospital-dashboard-container { position: relative; width: 100vw; min-width: 100vw; min-height: 100vh; height: 100vh; font-family: "Inter", "Poppins", sans-serif; overflow: hidden; display: flex; flex-direction: column; }
+
+/* BG image */
+.hospital-dashboard-bg { position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; background-size: cover; background-position: center; background-repeat: no-repeat; z-index: 0; pointer-events: none; }
+
+.hospital-dashboard-overlay { position: absolute; top: 0; left: 0; width: 280px; height: 100vh; background: rgba(15, 23, 42, 0.5); z-index: 1; pointer-events: none; }
+
+.hospital-dashboard-main { display: flex; flex: 1 1 0; margin-top: 60px; z-index: 2; width: 100%; height: 150%; min-height: calc(100vh - 60px); gap: 2rem; background: none; box-sizing: border-box; }
+
+.hospital-sidebar { flex: 0 0 260px; margin-top: 28px; margin-bottom: 28px; padding: 2rem 1rem; display: flex; flex-direction: column; gap: 1rem; color: #fff; z-index: 2; position: relative; }
+
+.hospital-sidebar .hospital-name { font-size: 1.5rem; font-weight: 600; color: whitesmoke; text-align: center; margin-bottom: 2rem; }
+
+.hospital-sidebar ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 1rem; }
+.hospital-sidebar li { display: flex; align-items: center; gap: 12px; padding: 0.9rem 1rem; border-radius: 10px; cursor: pointer; font-size: 0.95rem; transition: all 0.3s ease; }
+.hospital-sidebar li:hover { background: rgba(255,255,255,0.15); transform: translateX(5px); }
+.hospital-sidebar li.active { background: #0ea5e9; color: #fff; font-weight: 600; transform: scale(1.05); }
+
+.hospital-main-content { flex: 1 1 auto; margin: 2rem; padding: 2rem; overflow-y: auto; color: blue; border-radius: 15px; z-index: 2; min-width: 0; }
+
+.glass { background: rgba(255,255,255,0.1); backdrop-filter: blur(15px); border-radius: 15px; box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
+
+/* Welcome text */
+.hospital-welcome-text { font-size: 2rem; font-weight: 700; background: linear-gradient(90deg, #0ea5e9, #3b82f6); color: transparent; -webkit-background-clip: text; background-clip: text; animation: hospitalFadeIn 1s ease-in-out; text-align: center; }
+
+.hospital-main-content h1,h2,h3,h4,h5 { font-size: 2rem; font-weight: 700; background: linear-gradient(90deg, #0ea5e9, #3b82f6); color: transparent; -webkit-background-clip: text; background-clip: text; text-align: center; margin: 0.1rem 0; }
+
+.hospital-main-content form { display: flex; flex-direction: column; gap: 1rem; max-width: 600px; margin: 0 auto; }
+
+.hospital-main-content label { font-weight: 600; color: #1f2937; font-size: 1rem; margin-bottom: 0.25rem; display: block; transition: color 0.3s ease; }
+.hospital-main-content label:hover { color: #3b82f6; }
+
+.hospital-main-content input { width: 60%; padding: 0.7rem 1rem; font-size: 1rem; border: 1.8px solid #d1d5db; border-radius: 8px; background: white; color: #1f2937; box-shadow: 0 2px 6px rgba(59, 130, 246, 0.15); transition: border-color 0.3s ease, box-shadow 0.3s ease; }
+.hospital-main-content input:focus { outline: none; border-color: #3b82f6; box-shadow: 0 2px 12px rgba(59,130,246,0.5); background: white; color: #111827; }
+
+/* Profile buttons */
+.profile-actions { display: flex; justify-content: center; gap: 1rem; margin-top: 1rem; }
+.edit-btn, .save-btn { display: flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1.2rem; font-size: 0.95rem; font-weight: 600; border: none; border-radius: 8px; cursor: pointer; transition: all 0.2s ease-in-out; }
+.edit-btn { background: #3498db; color: #fff; }
+.edit-btn:hover:not(:disabled) { background: #2980b9; }
+.edit-btn:disabled { background: #95a5a6; cursor: not-allowed; }
+.save-btn { background: #2ecc71; color: #fff; }
+.save-btn:hover:not(:disabled) { background: #27ae60; }
+.save-btn:disabled { background: #95a5a6; cursor: not-allowed; }
+
+/* Dashboard cards */
+.dashboard-cards-container { display: flex; flex-direction: column; gap: 2rem; align-items: center; margin-top: 2rem; }
+.dashboard-cards-row { display: flex; gap: 2.5rem; justify-content: center; flex-wrap: wrap; }
+.modern-card { background: rgba(255,255,255,0.22); border-radius: 18px; box-shadow: 0 6px 32px rgba(0,0,0,0.11); display: flex; align-items: center; min-width: 260px; padding: 1.2rem 2.1rem 1.2rem 1.1rem; margin: 0 0.3rem; transition: box-shadow 0.3s, transform 0.3s; position: relative; }
+.modern-card:hover { box-shadow: 0 12px 32px rgba(32,124,229,0.13); transform: translateY(-3px) scale(1.03); }
+
+.stat-icon { display: flex; align-items: center; justify-content: center; font-size: 2.6rem; border-radius: 50%; height: 56px; width: 56px; margin-right: 1.3rem; box-shadow: 0 0 0 2px rgba(59,130,246,0.08); color: #fff; }
+.stat-icon.patients { background: linear-gradient(135deg, #0ea5e9 60%, #38bdf8); }
+.stat-icon.doctors { background: linear-gradient(135deg, #f59e42, #fbbf24); }
+.stat-icon.requests { background: linear-gradient(135deg, #9333ea, #d946ef); }
+
+.stat-info { display: flex; flex-direction: column; align-items: flex-start; }
+.stat-number { font-size: 2.3rem; font-weight: 800; color: #1e293b; line-height: 1.1; }
+.stat-label { font-size: 1.08rem; color: #4b5563; font-weight: 500; margin-top: 0.1rem; }
+
+.notifications-modern-card { max-width: 700px; margin: 0 auto; margin-top: 1.3rem; padding: 1.2rem 2rem; background: rgba(255,255,255,0.17); border-radius: 14px; box-shadow: 0 4px 20px rgba(0,0,0,0.09); color: #1e293b; min-height: 100px; }
+.notifications-modern-card h3 { margin: 0 0 0.7rem 0; color: #2563eb; font-size: 1.2rem; letter-spacing: 0.01em; }
+.notifications-modern-card ul { margin: 0; padding-left: 1.1rem; color: #374151; }
+.notifications-modern-card li { font-size: 1.08rem; border-bottom: 1px solid #e5e7eb; padding: 0.4rem 0; }
+
+/* --- Doctor Section inside main container --- */
+.add-doctor-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-radius: 12px;
+  max-width: 500px;   
+  margin: 0 auto;     
+  align-items: center;
+  animation: fadeInUp 0.7s ease-out;   /* ✅ entry animation */
+}
+
+.add-doctor-form label {
+  width: 100%;
+  max-width: 300px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #1f2937;
+  margin-bottom: 0.25rem;
+  text-align: left;
+  transition: color 0.3s ease;
+}
+.add-doctor-form label:hover {
+  color: #3498db;   /* ✅ label hover animation */
+}
+
+.add-doctor-form input {
+  width: 100%;
+  max-width: 300px;
+  padding: 0.6rem 0.9rem;
+  border-radius: 8px;
+  border: 1.5px solid #d1d5db;
+  font-size: 0.95rem;
+  background: white;
+  text-align: center;
+  transition: all 0.3s ease;   /* ✅ smooth transitions */
+}
+.add-doctor-form input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
+  transform: scale(1.02);     /* ✅ slight zoom on focus */
+}
+
+.add-doctor-btn {
+  margin-top: 1rem;
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 60%;         
+  max-width: 200px;
+  text-align: center;
+}
+.add-doctor-btn:hover {
+  background: #2980b9;
+  transform: scale(1.05);   /* ✅ zoom on hover */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* --- Toggle Button for Doctor List --- */
+.toggle-doctors-btn {
+  margin: 1rem 0;
+  background: #16a085;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 60%;
+  max-width: 200px;
+  text-align: center;
+}
+.toggle-doctors-btn:hover {
+  background: #138d75;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* --- Doctors List Container --- */
+.doctors-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;           /* ✅ space between cards */
+  margin-top: 1.5rem;     /* ✅ space from form */
+  justify-content: center;
+  animation: fadeInUp 0.7s ease-out;
+}
+
+/* --- Individual Doctor Card --- */
+.doctor-card {
+  flex: 1 1 220px;
+  background: white;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+.doctor-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.doctor-card div {
+  margin: 0.4rem 0;
+  font-size: 0.95rem;
+  color: #1f2937;
+}
+
+.remove-doctor-btn {
+  margin-top: 0.6rem;
+  padding: 0.5rem 1rem;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.remove-doctor-btn:hover {
+  background-color: #c0392b;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* --- Animations --- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cardPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.stat-card {
+  animation: cardPop 0.6s ease-out forwards;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* --- Patients Section inside main container --- */
+.add-patient-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-radius: 12px;
+  max-width: 500px;
+  margin: 0 auto;
+  align-items: center;
+  animation: fadeInUp 0.7s ease-out; /* entry animation */
+}
+
+.add-patient-form label {
+  width: 100%;
+  max-width: 300px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #1f2937;
+  margin-bottom: 0.25rem;
+  text-align: left;
+  transition: color 0.3s ease;
+}
+.add-patient-form label:hover {
+  color: #3498db; /* label hover animation */
+}
+
+.add-patient-form input,
+.add-patient-form select {
+  width: 100%;
+  max-width: 300px;
+  padding: 0.6rem 0.9rem;
+  border-radius: 8px;
+  border: 1.5px solid #d1d5db;
+  font-size: 0.95rem;
+  background: white;
+  text-align: center;
+  transition: all 0.3s ease; /* smooth transitions */
+}
+.add-patient-form input:focus,
+.add-patient-form select:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
+  transform: scale(1.02); /* slight zoom on focus */
+}
+
+.add-patient-btn {
+  margin-top: 1rem;
+  background: #4cafef;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 60%;
+  max-width: 200px;
+  text-align: center;
+}
+.add-patient-btn:hover {
+  background: #3a9ed9;
+  transform: scale(1.05); /* zoom on hover */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* --- Toggle Button for Patients List --- */
+.toggle-patients-btn {
+  margin: 1rem 0;
+  background: #16a085;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 60%;
+  max-width: 200px;
+  text-align: center;
+}
+.toggle-patients-btn:hover {
+  background: #138d75;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* --- Patients List Container --- */
+.patients-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem; /* space between cards */
+  margin-top: 1.5rem; /* space from form */
+  justify-content: center;
+  animation: fadeInUp 0.7s ease-out;
+}
+
+/* --- Individual Patient Card --- */
+.patient-card {
+  flex: 1 1 220px;
+  background: white;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+.patient-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.patient-card div {
+  margin: 0.4rem 0;
+  font-size: 0.95rem;
+  color: #1f2937;
+}
+
+.remove-patient-btn {
+  margin-top: 0.6rem;
+  padding: 0.5rem 1rem;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.remove-patient-btn:hover {
+  background-color: #c0392b;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.input-error {
+  border-color: #e74c3c !important;
+  box-shadow: 0 0 6px rgba(231,76,60,0.5);
+}
+
+.error-msg {
+  color: #e74c3c;
+  font-size: 0.85rem;
+  margin-top: -0.5rem;
+  margin-bottom: 0.5rem;
+  text-align: left;
+  width: 100%;
+  max-width: 300px;
+}
+
+/* Fill Condition Button */
+.condition-btn {
+  background: #4caf50;        /* green */
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1rem;       /* increased padding */
+  margin-top: 0.5rem;
+  margin-left: 0.8rem;       /* more gap from Remove button */
+  border-radius: 6px;         /* slightly more rounded */
+  cursor: pointer;
+  font-size: 0.9rem;            /* increased font size */
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.condition-btn:hover {
+  background: #45a049;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.patient-card .condition-btn {
+  display: inline-block;
+}
+
+.organ-request-form {
+  max-width: 480px;
+  width: 100%;
+  padding: 3rem 2.5rem;
+  border-radius: 1.8rem;
+  background: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(15px) saturate(180%);
+  border: 1.2px solid rgba(255, 255, 255, 0.26);
+  color: #21243e;
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+  animation: slideFadeIn 1s cubic-bezier(.42, 0, .58, 1) forwards;
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+}
+
+.organ-request-form h2 {
+  text-align: center;
+  font-size: 2.1rem;
+  color: #153475;
+  font-weight: 700;
+  text-shadow: 0 3px 12px rgba(40, 50, 107, 0.19);
+  margin-bottom: 2rem;
+}
+
+.organ-request-form select,
+.organ-request-form input,
+.organ-request-form textarea {
+  /* Reduced width */
+  max-width: 400px;
+  width: 100%;
+  padding: 0.85rem 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.8rem;
+  background: rgba(255, 255, 255, 0.23);
+  color: #1b233d;
+  box-shadow: 0 1.5px 8px rgba(31, 38, 135, 0.05);
+  transition: background 0.25s, box-shadow 0.25s;
+  font-family: 'Poppins', sans-serif;
+  resize: none;
+  margin-top: 0.2rem;
+  align-self: center; /* center fields with reduced max-width */
+}
+
+
+.organ-request-form select:hover,
+.organ-request-form input:hover,
+.organ-request-form textarea:hover,
+.organ-request-form select:focus,
+.organ-request-form input:focus,
+.organ-request-form textarea:focus {
+  background: rgba(255, 255, 255, 0.33);
+  box-shadow: 0 0 10px rgba(80, 140, 250, 0.18);
+  outline: none;
+  border: 1.5px solid #1f6eff;
+}
+
+.organ-request-form textarea {
+  min-height: 100px;
+}
+
+.organ-request-form select option {
+  color: #1b233d;
+  font-weight: 600;
+}
+
+.organ-request-form input::placeholder,
+.organ-request-form textarea::placeholder {
+  color: #647098;
+  opacity: 0.8;
+  font-style: italic;
+}
+
+.submit-request-btn {
+  background: linear-gradient(90deg, #36d1dc 0%, #5b86e5 100%);
+  color: #fff;
+  border: none;
+  padding: 0.85rem 2.5rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 4px 24px rgba(91, 134, 229, 0.14);
+  transition: background 0.3s, box-shadow 0.3s, transform 0.18s;
+  margin-top: 1.5rem;
+  align-self: center;
+  letter-spacing: 0.03em;
+  white-space: nowrap; /* prevents wrapping */
+  text-align: center;
+  min-width: 200px; /* enough width to fit text */
+  font-family: 'Poppins', sans-serif;
+  outline: none;
+}
+
+.submit-request-btn:hover,
+.submit-request-btn:focus {
+  background: linear-gradient(135deg, #357ab8 0%, #4a90e2 100%);
+  box-shadow: 0 8px 22px rgba(40, 79, 173, 0.8);
+  transform: translateY(-3px);
+}
+
+/* Matched Donors Container */
+.matched-donors-container {
+  margin-top: 1.5rem;
+  padding: 1rem 1.5rem;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #1b233d;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Matched Donors Table */
+.matched-donors-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.8rem;
+}
+
+.matched-donors-table th,
+.matched-donors-table td {
+  border: 1.2px solid rgba(59, 130, 246, 0.15);
+  padding: 0.6rem 0.9rem;
+  text-align: left;
+  font-size: 0.95rem;
+  color: #153475;
+  transition: background 0.25s ease;
+}
+
+.matched-donors-table th {
+  background: rgba(59, 130, 246, 0.1);
+  font-weight: 600;
+  color: #0e3a8a;
+  border-bottom: 2px solid #2563eb;
+}
+
+.matched-donors-table tbody tr:hover {
+  background: rgba(91, 134, 229, 0.15);
+  cursor: default;
+}
+
+.donor-response-item.accepted {
+  border-left: 4px solid green;
+}
+
+.donor-response-item.rejected {
+  border-left: 4px solid red;
+  color: darkred;
+}
+
+.donor-response-item.timeout {
+  border-left: 4px solid orange;
+  color: darkorange;
+}
+
+.notification-item {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+.status.accepted { color: green; }
+.status.rejected, .status.declined { color: red; }
+.status.timeout { color: gray; }
+
+.suggestions-list {
+  background: #fff;
+  border: 1px solid #ccc;
+  max-height: 150px;
+  overflow-y: auto;
+  margin-top: 0;
+  padding-left: 0;
+  list-style: none;
+  position: absolute;
+  width: 100%;
+  z-index: 10;
+  border-radius: 0.3rem;
+}
+
+.suggestions-list li {
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.suggestions-list li:hover {
+  background-color: #f0f0f0;
+}
+
+/* fade-in slide animation */
+@keyframes slideFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* fade-in slide animation */
+@keyframes slideFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade-in animation */
+@keyframes textFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Section heading */
+.hospital-notifications h2 {
+  color: #243c94; /* deep blue */
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-align: center;
+  animation: textFadeIn 0.6s ease forwards;
+}
+
+/* Empty state text */
+.hospital-notifications p {
+  text-align: center;
+  color: #444;
+  font-size: 1rem;
+  animation: textFadeIn 0.5s ease forwards;
+}
+
+/* Notification list */
+.donor-response-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  animation: textFadeIn 0.8s ease forwards;
+}
+
+/* Individual notification card */
+.donor-response-item {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  padding: 1rem 1.4rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-left: 5px solid transparent;
+  transition: all 0.3s ease;
+  color: #222; /* dark text for readability */
+}
+
+/* Hover glow effect */
+.donor-response-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+
+/* Status colors */
+.donor-response-item.accepted {
+  border-left-color: #2e7d32; /* green */
+}
+
+.donor-response-item.rejected {
+  border-left-color: #c62828; /* red */
+}
+
+.donor-response-item.timeout {
+  border-left-color: #f9a825; /* amber */
+}
+
+/* Text details inside card */
+.donor-response-item strong {
+  color: #111;
+  font-weight: 600;
+}
+
+.donor-response-item em {
+  display: block;
+  color: #555;
+  font-size: 0.85rem;
+  margin-top: 6px;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+  .donor-response-item {
+    font-size: 0.9rem;
+    padding: 0.9rem 1.1rem;
+  }
+
+  .hospital-notifications h2 {
+    font-size: 1.3rem;
+  }
+}
+
+.ok-btn {
+  margin-top: 0.6rem;
+  background-color: #2c3e50;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+.ok-btn:hover {
+  background-color: #1a252f;
+}

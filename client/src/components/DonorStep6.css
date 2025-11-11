@@ -1,0 +1,209 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: "Poppins", sans-serif, "Segoe UI", Tahoma, Geneva, Verdana;
+  background-color: #f0f2f5;
+  overflow-x: hidden;
+}
+
+.form-container {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+}
+
+.form-content {
+  background: rgba(255, 255, 255, 0.92);
+  padding: 25px 30px;
+  border-radius: 14px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 460px;
+  backdrop-filter: blur(8px);
+}
+
+.form-title {
+  text-align: center;
+  color: #2c3e50;
+  font-size: 1.5em;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.form-subtitle {
+  text-align: center;
+  color: #5d6d7e;
+  font-size: 0.95em;
+  margin-bottom: 18px;
+}
+
+/* Input Groups */
+.form-group {
+  margin-bottom: 16px;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+  font-size: 0.9em;
+  color: #34495e;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="tel"],
+input[type="password"],
+input[type="email"] {
+  width: 100%;
+  padding: 9px 11px;
+  border: 1px solid #cdd4da;
+  border-radius: 8px;
+  font-size: 14px;
+  background: #fff;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+}
+
+/* File Upload */
+input[type="file"] {
+  display: none;
+}
+
+.file-upload {
+  border: 2px dashed #cdd4da;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  background: #fafafa;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+.file-upload:hover {
+  border-color: #007bff;
+  background-color: #f5faff;
+}
+
+.file-name {
+  margin-top: 6px;
+  font-size: 0.8em;
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+/* Error */
+.error {
+  color: #e74c3c;
+  font-size: 0.8em;
+  margin-top: 4px;
+}
+
+/* Button */
+.next-button {
+  width: 100%;
+  padding: 11px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.next-button:hover {
+  background-color: #218838;
+  transform: translateY(-2px);
+}
+
+/* Success Box */
+.success-box {
+  text-align: center;
+  margin-top: 20px;
+  padding: 30px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  color: #2c3e50;
+  animation: fadeIn 1s ease-in;
+}
+
+.thank-you-text {
+  font-size: 1.8em;
+  font-weight: 700;
+  color: #1e8449;
+  margin-bottom: 12px;
+}
+
+.donor-id {
+  font-size: 1.6em;
+  font-weight: 700;
+  color: #d35400;
+}
+
+.donation-quote {
+  font-size: 0.95em;
+  font-style: italic;
+  color: #5d6d7e;
+  margin: 15px 0;
+}
+
+/* Success animation */
+.checkmark-animation {
+  font-size: 3.5rem;
+  color: #28a745;
+  animation: pop 0.6s ease forwards, pulse 1.5s infinite;
+  margin-bottom: 12px;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

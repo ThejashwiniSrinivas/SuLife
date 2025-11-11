@@ -1,0 +1,188 @@
+/* Container */
+.rs-container {
+  position: relative;
+  height: 100vh;            /* ✅ full height */
+  width: 100vw;             /* ✅ full width */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  overflow: hidden;
+
+  background: url("../assets/register.jpg") no-repeat center center;
+  background-size: cover;   /* ✅ makes it cover fully */
+  font-family: "Poppins", sans-serif;
+  color: whitesmoke;
+  text-align: center;
+}
+
+
+/* Overlay for readability */
+.rs-container::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);   /* dark overlay */
+  z-index: 0;
+}
+
+.rs-container > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Title */
+.rs-title {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  font-weight: 700;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  margin-top: 30px;
+}
+
+/* Grid */
+.rs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+  max-width: 900px;
+}
+
+/* Card */
+.rs-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 280px;
+  margin-top: -20px;
+}
+
+.rs-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Image Wrapper */
+.rs-imgWrap {
+  width: 100%;
+  height: 140px;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rs-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ✅ Special rule for Admin logo (so it’s not cut) */
+.rs-card:nth-child(3) .rs-img {
+  object-fit: contain;
+  background: #fff;   /* optional: white background for icon clarity */
+  padding: 10px;
+  border-radius: 8px;
+}
+
+/* Unique Card Headings for Register Selection */
+.rs-cardHeading {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: whitesmoke !important; /* forces the color */
+  text-shadow: 0 2px 6px rgba(0,0,0,0.4); /* optional subtle shadow for readability */
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.rs-cardHeading:hover {
+  transform: translateY(-2px);
+  color: #f0f0f0; /* slightly brighter on hover */
+}
+
+
+/* Buttons */
+.rs-primaryBtn {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 20px;
+  background: #fff;
+  color: #0072ff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+  font-size: 0.9rem;
+}
+
+.rs-primaryBtn:hover {
+  background: #f0f0f0;
+  transform: scale(1.05);
+}
+
+/* Login Section */
+.login-section {
+  margin-top: 30px;
+}
+
+.rs-secondaryBtn {
+  padding: 8px 18px;
+  border: none;
+  border-radius: 20px;
+  background: #fff;
+  color: #0072ff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+  font-size: 0.9rem;
+}
+
+.rs-secondaryBtn:hover {
+  background: #f0f0f0;
+  transform: scale(1.05);
+}
+
+/* Back Button */
+.back-section {
+  margin-top: 20px;
+}
+
+.rs-backBtn {
+  padding: 8px 18px;
+  border: none;
+  border-radius: 20px;
+  background: #ff5252;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+  font-size: 0.9rem;
+}
+
+.rs-backBtn:hover {
+  background: #e84141;
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .rs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .rs-grid {
+    grid-template-columns: 1fr;
+  }
+}

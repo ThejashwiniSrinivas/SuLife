@@ -1,0 +1,154 @@
+/* Background + Layout */
+.hospital-container {
+  position: relative;
+  width: 350%;
+  height: 100vh; /* full screen */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hospital-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1;
+}
+
+/* Form Content */
+.hospital-content {
+  position: relative;
+  z-index: 2;
+  width: 450px; /* ✅ reduced width */
+  padding: 35px 28px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  animation: fadeIn 1.2s ease;
+  color:black;
+}
+
+.hospital-title {
+  font-size: 2.3rem;
+  text-align: center;
+  margin-bottom: 10px;
+  font-weight: 800;
+  color: cyan;
+}
+
+.hospital-subtitle {
+  font-size: 1.25rem;
+  text-align: center;
+  margin-bottom: 25px;
+  color: pink;
+}
+
+/* Form Fields */
+.hospital-form-group {
+  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+}
+
+.hospital-form-group label {
+  font-weight: bold;
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+  color: cyan;  /* ✅ light cyan */
+}
+
+.hospital-form-group input {
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.hospital-form-row {
+  display: flex;
+  gap: 12px;
+}
+
+/* Error Message */
+.hospital-error {
+  color: #ff6666;
+  font-size: 0.8rem;
+  margin-top: 1px;   /* ✅ reduced space */
+  line-height: 1;  /* ✅ compact spacing */
+}
+/* Radio Group */
+.hospital-radio-group {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.hospital-radio-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 1rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+.hospital-radio-label input[type="radio"] {
+  transform: scale(1.5); /* ✅ bigger radio */
+  cursor: pointer;
+}
+
+/* Button */
+.hospital-next-btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  background: cyan;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.05rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+
+.hospital-next-btn:hover {
+  background: transparent;
+  color: cyan;
+  border: 2px solid cyan;
+  box-shadow: 0 0 12px cyan;
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .hospital-content {
+    width: 90%;
+    padding: 25px 20px;
+  }
+
+  .hospital-form-row {
+    flex-direction: column;
+  }
+}

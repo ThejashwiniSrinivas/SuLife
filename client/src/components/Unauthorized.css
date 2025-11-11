@@ -1,0 +1,104 @@
+/* Full screen container with background image */
+.unauth-container {
+  min-height: 100vh;
+  width: 380%;
+  display: flex;
+  flex-direction: column;
+  background: url("../assets/Noaccess.jpg") no-repeat center center/cover;
+}
+
+/* Center content */
+.unauth-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Card styling */
+.unauth-card {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 3rem;
+  border-radius: 15px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  height: auto;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  animation: fadeInUp 0.8s ease;
+}
+
+/* Red cross animation */
+.unauth-icon {
+  font-size: 4rem;
+  color: #e63946;
+  margin-bottom: 1rem;
+  animation: bounce 1.2s infinite;
+}
+
+/* Headings */
+.unauth-card h1 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: #222;
+}
+
+.unauth-card p {
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+/* Buttons */
+.unauth-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.btn.back {
+  background: #f1f1f1;
+  color: #333;
+}
+
+.btn.back:hover {
+  background: #ddd;
+}
+
+.btn.login {
+  background: #e63946;
+  color: #fff;
+}
+
+.btn.login:hover {
+  background: #c52834;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}

@@ -1,0 +1,133 @@
+/* src/components/Login.css */
+
+.login-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.login-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(3px);
+}
+
+.login-box {
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.95); /* ✅ glass effect */
+  padding: 2rem 2.5rem;
+  border-radius: 16px;
+  width: 350px; /* ✅ fixed width */
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  animation: fadeInUp 0.6s ease-in-out;
+}
+
+.login-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+  letter-spacing: 1px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-group {
+  margin-bottom: 1.2rem;
+  text-align: left;
+}
+
+.login-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  display: block;
+  color: #34495e;
+}
+
+.login-group input,
+.login-group select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.3s ease;
+  background: #f9f9f9;
+}
+
+.login-group input:focus,
+.login-group select:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 6px rgba(52, 152, 219, 0.6);
+  background: #fff;
+}
+
+.login-btn {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: white;
+  font-weight: bold;
+  padding: 0.9rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.login-btn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #2980b9, #2471a3);
+}
+
+.login-error {
+  color: #e74c3c;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.login-register {
+  margin-top: 1.2rem;
+  font-size: 0.9rem;
+  color: #2c3e50;
+}
+
+.login-register span {
+  color: #3498db;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.login-register span:hover {
+  color: #1f6391;
+  text-decoration: underline;
+}
+
+/* ✅ Smooth fade-in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
