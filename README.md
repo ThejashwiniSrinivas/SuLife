@@ -79,7 +79,7 @@ cd ../server
 node changeStreamListener.js
 
 🧰 Commands Summary
-Task	Command
+Task	             Command
 🖥️ Start backend	npm run dev (in /server)
 💻 Start frontend	npm run dev (in /client)
 🧠 Run ML API	python model_api.py
@@ -97,8 +97,7 @@ Task	Command
 📈 Hospital analytics dashboard
 
 👩‍💻 Author
-Thejashwini Srinivas
-💼 MERN Stack 
+Thejashwini S
 
 ⭐ If you like this project, please give it a star on GitHub!
 It helps others discover this project 😊
