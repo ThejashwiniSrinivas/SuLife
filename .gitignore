@@ -37,3 +37,8 @@ Thumbs.db
 
 # Coverage or test reports
 coverage/
+
+# Environment files
+server/.env
+ml_training/.env
+.env
